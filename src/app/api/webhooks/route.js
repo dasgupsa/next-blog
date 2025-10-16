@@ -1,6 +1,5 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
-import { clerkClient } from '@clerk/nextjs/server';
 
 export async function POST(req) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
@@ -54,6 +53,16 @@ export async function POST(req) {
   const eventType = evt?.type;
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
   console.log('Webhook body:', body);
+
+  if(evt.type === 'user.created') {
+    // send welcome email to user
+    console.log('userId:', evt.data.id);
+  }
+
+  if(evt.type === 'user.updated') {
+    // send welcome email to user
+    console.log('User is updated');
+  }
 
   
   return new Response('', { status: 200 });

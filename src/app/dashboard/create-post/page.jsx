@@ -10,10 +10,15 @@ const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 // https://dev.to/a7u/reactquill-with-nextjs-478b
 import 'react-quill-new/dist/quill.snow.css';
 
-import {getDownloadURL,getStorage,ref,uploadBytesResumable,} from 'firebase/storage';
-//import { app } from '@/firebase';
-
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from 'firebase/storage';
 import app from '../../../firebase'
+
+
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
